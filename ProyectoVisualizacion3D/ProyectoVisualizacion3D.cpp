@@ -7,13 +7,10 @@ ProyectoVisualizacion3D::ProyectoVisualizacion3D(QWidget *parent)
 {
     ui.setupUi(this);
 
-
     OpenGLWidget *OGLW = new OpenGLWidget();
     ui.verticalLayout->addWidget(OGLW);
 
 }
-
+//verticalLayout
 //widget
 //openGLWidget
-
-//verticalLayout
