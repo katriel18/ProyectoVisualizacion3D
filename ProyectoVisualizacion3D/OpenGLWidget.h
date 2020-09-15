@@ -5,7 +5,7 @@
 class OpenGLWidget : public QOpenGLWidget 
 {
  public:
-     OpenGLWidget(QOpenGLWidget* parent = Q_NULLPTR);
+     OpenGLWidget(QWidget* parent = Q_NULLPTR);
     ~OpenGLWidget();
    
 protected:
