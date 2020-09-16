@@ -12,25 +12,50 @@ ProyectoVisualizacion3D::ProyectoVisualizacion3D(QWidget *parent)
 
 void ProyectoVisualizacion3D::on_pushButton_clicked()
 {
-    ui.pushButton_2->setText("pushButton_2");
-    ui.pushButton->setText("SELECCIONADO");
+   
 
-    if (OGLW->f2==true)
-        OGLW->f2 = false;
-    OGLW->f1 = true;
+    OGLW->figura = 1;
     OGLW->update();
   
 
 }
 void ProyectoVisualizacion3D::on_pushButton_2_clicked()
 {
-    ui.pushButton->setText("pushButton_1");
-    ui.pushButton_2->setText("SELECCIONADO");
-
-    if (OGLW->f1 == true)
-        OGLW->f1 = false;
-    OGLW->f2 = true;
+    
+    OGLW->figura = 2;
     OGLW->update();
 
 
+}
+
+void ProyectoVisualizacion3D::on_pushButton_3_clicked()
+{
+    if (OGLW->fill == false) {
+        OGLW->fill = true;
+
+
+    }
+    else {
+        OGLW->fill = false;
+
+    }
+
+    OGLW->update();
+
+}
+
+void ProyectoVisualizacion3D::on_pushButton_4_clicked()
+{
+
+    if (OGLW->wire == false) {
+        OGLW->wire = true;
+        
+
+    }else {
+        OGLW->wire = false;
+       
+    }
+
+    OGLW->update();
+    
 }

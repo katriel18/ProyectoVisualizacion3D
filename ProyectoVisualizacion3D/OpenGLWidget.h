@@ -14,11 +14,23 @@ protected:
 
 public:
     GLuint programID;
-    GLuint VertexArrayID;
-    GLuint vertexbuffer;
+
+    GLuint vao[1];
+    GLuint vbo[3];
+
     GLuint MatrixID;
+   
+    GLfloat colorID1;
+    GLfloat colorID2;
+    GLfloat colorID3;
+
     mat4 MVP;
 
-    bool f1, f2;
-    void pintarFigura(float vertices[]);
+    int numVertices;
+
+    int figura;
+    boolean fill;
+    boolean wire;
+
+    void seleccionarFigura(int figura);
 };

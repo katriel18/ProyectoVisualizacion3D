@@ -1,7 +1,8 @@
 #include <cmath>
 #include <vector>
 #include <iostream>
-#include <glm\glm.hpp>
+#include "glm.hpp"
+
 #include "Sphere.h"
 using namespace std;
 
@@ -38,20 +39,20 @@ void Sphere::init(int prec) {
 // calculate triangle vertices
 	for (int i = 0; i <= prec; i++) {
 		for (int j = 0; j <= prec; j++) {
-			float y = (float) cos(toRadians(180.0f - i * 180.0f / prec));
+			float y = (float)cos(toRadians(180.0f - i * 180.0f / prec));
 
-			float x = -(float) cos(toRadians(j * 360.0f / prec)) * (float) abs(cos(asin(y)));
+			float x = -(float)cos(toRadians(j * 360.0f / prec)) * (float)abs(cos(asin(y)));
 
-			float z = (float) sin(toRadians(j * 360.0f / prec)) * (float) abs(cos(asin(y)));
+			float z = (float)sin(toRadians(j * 360.0f / prec)) * (float)abs(cos(asin(y)));
 
 			vertices[i * (prec + 1) + j] = glm::vec3(x, y, z);
 
-			texCoords[i * (prec + 1) + j] = glm::vec2(((float) j / prec),((float) i / prec));
+			texCoords[i * (prec + 1) + j] = glm::vec2(((float)j / prec), ((float)i / prec));
 
 			normals[i * (prec + 1) + j] = glm::vec3(x, y, z);
 		}
 	}
-// calculate triangle indices
+	// calculate triangle indices
 	for (int i = 0; i < prec; i++) {
 		for (int j = 0; j < prec; j++) {
 			indices[6 * (i * prec + j) + 0] = i * (prec + 1) + j;

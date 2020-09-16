@@ -1,6 +1,8 @@
+#include "libs.h"
+
 #include <cmath>
 #include <vector>
-#include <glm\glm.hpp>
+
 class Sphere {
 private:
 	int numVertices;
