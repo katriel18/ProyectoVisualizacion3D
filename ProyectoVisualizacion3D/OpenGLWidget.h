@@ -24,6 +24,8 @@ public:
     GLfloat colorID2;
     GLfloat colorID3;
 
+    mat4 myScalingMatrix;
+
     mat4 MVP;
 
     int numVertices;
@@ -31,6 +33,9 @@ public:
     int figura;
     boolean fill;
     boolean wire;
+
+    float SCALE;
+    
 
     void seleccionarFigura(int figura);
 };

@@ -7,6 +7,9 @@ ProyectoVisualizacion3D::ProyectoVisualizacion3D(QWidget *parent)
     OGLW = new OpenGLWidget();
     ui.verticalLayout->addWidget(OGLW);
    
+    ui.horizontalSlider->setMinimum(2);
+    ui.horizontalSlider->setMaximum(50);
+    ui.label_2->setText("0");
     
 }
 
@@ -58,4 +61,19 @@ void ProyectoVisualizacion3D::on_pushButton_4_clicked()
 
     OGLW->update();
     
+}
+
+
+void ProyectoVisualizacion3D::on_pushButton_5_clicked()
+{
+
+    if (OGLW->SCALE == 1.0f || OGLW->SCALE == 0.2f) {
+        OGLW->SCALE=2.0f;
+
+
+    }else if(OGLW->SCALE == 2.0f) {
+        OGLW->SCALE = 0.2f;
+    }
+    OGLW->update();
+
 }

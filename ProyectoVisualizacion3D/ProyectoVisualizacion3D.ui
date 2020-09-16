@@ -14,33 +14,13 @@
    <string>ProyectoVisualizacion3D</string>
   </property>
   <widget class="QWidget" name="centralWidget">
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>230</x>
-      <y>0</y>
-      <width>371</width>
-      <height>31</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>14</pointsize>
-      <weight>75</weight>
-      <bold>true</bold>
-     </font>
-    </property>
-    <property name="text">
-     <string>VISUALIZACION DE OBJETOS 3D</string>
-    </property>
-   </widget>
    <widget class="QWidget" name="verticalLayoutWidget">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>521</width>
-      <height>451</height>
+      <x>20</x>
+      <y>60</y>
+      <width>511</width>
+      <height>421</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout"/>
@@ -49,8 +29,8 @@
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>40</y>
-      <width>231</width>
+      <y>60</y>
+      <width>241</width>
       <height>80</height>
      </rect>
     </property>
@@ -88,8 +68,8 @@
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>130</y>
-      <width>231</width>
+      <y>150</y>
+      <width>241</width>
       <height>80</height>
      </rect>
     </property>
@@ -127,14 +107,27 @@
     <property name="geometry">
      <rect>
       <x>550</x>
-      <y>220</y>
-      <width>221</width>
+      <y>240</y>
+      <width>241</width>
       <height>80</height>
      </rect>
     </property>
     <property name="title">
      <string>SEGMENTS</string>
     </property>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>30</x>
+       <y>30</y>
+       <width>75</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>SCALE</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
@@ -253,9 +246,42 @@
      </property>
     </widget>
    </widget>
+   <widget class="QGroupBox" name="groupBox_5">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>10</y>
+      <width>761</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string/>
+    </property>
+    <widget class="QLabel" name="label">
+     <property name="geometry">
+      <rect>
+       <x>190</x>
+       <y>0</y>
+       <width>411</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <pointsize>14</pointsize>
+       <weight>75</weight>
+       <bold>true</bold>
+      </font>
+     </property>
+     <property name="text">
+      <string>VISUALIZADOR GRAFICO DE OBJETOS 3D</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>groupBox_5</zorder>
    <zorder>groupBox</zorder>
    <zorder>groupBox_2</zorder>
-   <zorder>label</zorder>
    <zorder>verticalLayoutWidget</zorder>
    <zorder>groupBox_3</zorder>
    <zorder>groupBox_4</zorder>

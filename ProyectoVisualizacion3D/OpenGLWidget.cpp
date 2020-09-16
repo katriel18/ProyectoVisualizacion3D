@@ -9,9 +9,11 @@ OpenGLWidget::OpenGLWidget(QWidget* parent) :
 	fill = false;
 	wire = false;
 
-	colorID1 = 0.0;
-	colorID2 = 0.0;
-	colorID3 = 0.0;
+	SCALE = 1.0f;
+
+	colorID1 = 0.0f;
+	colorID2 = 0.0f;
+	colorID3 = 0.0f;
 }
 OpenGLWidget::~OpenGLWidget()
 {
@@ -31,24 +33,28 @@ void OpenGLWidget::initializeGL() {
 /*
 	// Habilitar prueba de profundidad
 	glEnable(GL_DEPTH_TEST);
-	// Acepta fragmento si est� m�s cerca de la c�mara que el anterior.
+	// Acepta fragmento si esta mas cerca de la c�mara que el anterior.
 	glDepthFunc(GL_LESS);
 
-	// Elimina tri�ngulos que lo normal no es hacia la c�mara
+	// Elimina triangulos que lo normal no es hacia la c�mara
 	glEnable(GL_CULL_FACE);
 */
 	// Create and compile our GLSL program from the shaders
 	 programID = LoadShaders("vertex_core.glsl", "fragment_core.glsl");
-	// Obtenga un identificador para nuestro uniforme "MVP"
+
+	//uniforme "MVP"
 	  MatrixID = glGetUniformLocation(programID, "MVP");
 
-	
 	  colorID1 = glGetUniformLocation(programID, "colorIn1");
 	  colorID2 = glGetUniformLocation(programID, "colorIn2");
 	  colorID3 = glGetUniformLocation(programID, "colorIn3");
 	 
 	  
+	  //matriz de escalamiento, aumento del tamano
+	  //myScalingMatrix = scale(mat4(1.0), vec3(2.0f, 2.0f, 2.0f));
 
+	  //matriz de escalamiento, disminucion del tamano
+		// myScalingMatrix = scale(mat4(1.0), vec3(0.2f, 0.2f, 0.2f));
 
 		
 
@@ -64,20 +70,26 @@ void OpenGLWidget::paintGL() {
 
 	if (figura == 1) {
 		seleccionarFigura(1);
-	}
-	else if (figura == 2) {
+	}else if (figura == 2) {
 		seleccionarFigura(2);
 	}
 
+
+
 	if (figura != 0) {
-
-
 
 		// Use our shader
 		glUseProgram(programID);
 
 
-		// 1er b�fer de atributo: vertices
+		myScalingMatrix = scale(mat4(1.0), vec3(SCALE, SCALE, SCALE));
+
+		//Envie nuestra transformacion al sombreador "MVP"
+		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myScalingMatrix[0][0]);
+		//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, value_ptr(myScalingMatrix));	//Incluir la libreria type_ptr
+			
+			
+		// 1er bufer de atributo: vertices
 		glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
 		glVertexAttribPointer(
@@ -89,44 +101,35 @@ void OpenGLWidget::paintGL() {
 			(void*)0            // array buffer offset
 		);
 
+		if (fill) {
 
+			glProgramUniform1f(programID, colorID1, 0.52f);
+			glProgramUniform1f(programID, colorID2, 0.52f);
+			glProgramUniform1f(programID, colorID3, 0.52f);
+			glPointSize(4.0f);
+			// DIBUJA LOS TRIANGULOS PINTADOS !
+			glDrawArrays(GL_TRIANGLES, 0, numVertices);
 
+		}
 
+		if(wire) {
+			//DIBUJA EL MARCO DE TRIANGULOS
+			glProgramUniform1f(programID, colorID1, 1.0f);
+			glProgramUniform1f(programID, colorID2, 1.0f);
+			glProgramUniform1f(programID, colorID3, 0.0f);
+			glDrawArrays(GL_LINE_LOOP, 0, numVertices);
 
-
-	if (fill) {
-
-		glProgramUniform1f(programID, colorID1, 0.52f);
-		glProgramUniform1f(programID, colorID2, 0.52f);
-		glProgramUniform1f(programID, colorID3, 0.52f);
-		glPointSize(4.0f);
-		// DIBUJA LOS TRIANGULOS PINTADOS !
-		glDrawArrays(GL_TRIANGLES, 0, numVertices);
-
-
+			glDisableVertexAttribArray(0);
+		}
 
 	}
 
-
-	if (wire) {
-		//DIBUJA EL MARCO DE TRIANGULOS
-		glProgramUniform1f(programID, colorID1, 1.0f);
-		glProgramUniform1f(programID, colorID2, 1.0f);
-		glProgramUniform1f(programID, colorID3, 0.0f);
-		glDrawArrays(GL_LINE_LOOP, 0, numVertices);
-
-		glDisableVertexAttribArray(0);
-	}
-
-
-}
 }
 
 
 
 void OpenGLWidget::seleccionarFigura(int figura)
 {
-
 
 
 	if (figura == 1) {
@@ -150,9 +153,9 @@ void OpenGLWidget::seleccionarFigura(int figura)
 	}else if (figura == 2) {
 
 		static const GLfloat vertices_f2[] = {
-		-0.5f,  0.5f, 1.0f, 
-		 0.5f,  0.5f, 1.0f,
-		 0.5f, -0.5f, 1.0f, 
+		-0.5f,  0.5f, 0.0f, 
+		 0.5f,  0.5f, 0.0f,
+		 0.5f, -0.5f, 0.0f, 
 
 		-0.5f,  0.5f, 0.0f,
 		-0.5f, -0.5f, 0.0f, 
