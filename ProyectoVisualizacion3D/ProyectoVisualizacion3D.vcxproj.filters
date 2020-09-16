@@ -22,6 +22,9 @@
       <Extensions>qrc;*</Extensions>
       <ParseFiles>false</ParseFiles>
     </Filter>
+    <Filter Include="Header Files\librerias">
+      <UniqueIdentifier>{ed577ef0-de88-4154-838c-f3b28e89ac1e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="ProyectoVisualizacion3D.qrc">
@@ -48,6 +51,9 @@
   <ItemGroup>
     <ClInclude Include="OpenGLWidget.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="libs.h">
+      <Filter>Header Files\librerias</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
