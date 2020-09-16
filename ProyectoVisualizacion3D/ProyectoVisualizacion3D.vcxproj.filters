@@ -34,6 +34,12 @@
     <Filter Include="Source Files\util">
       <UniqueIdentifier>{d34d7a26-ee69-4c35-baf8-64f0ac7c3f2c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\figuras">
+      <UniqueIdentifier>{8527930e-acb5-4d73-ab3b-cd4429bc328a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\figuras">
+      <UniqueIdentifier>{9e54a16a-8128-4232-a5ee-9c5e0f2d8d57}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="ProyectoVisualizacion3D.qrc">
@@ -59,6 +65,9 @@
     <ClCompile Include="shader.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
+    <ClCompile Include="Esfera.cpp">
+      <Filter>Source Files\figuras</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLWidget.h">
@@ -69,6 +78,9 @@
     </ClInclude>
     <ClInclude Include="shader.hpp">
       <Filter>Header Files\util</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere.h">
+      <Filter>Header Files\figuras</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

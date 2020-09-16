@@ -9,7 +9,7 @@ uniform mat4 MVP;
 void main(){
 
     // Posición de salida del vértice, en el espacio del clip : MVP * posición
-	gl_Position =vec4(vertexPosition_modelspace,1);
+	gl_Position =  MVP * vec4(vertexPosition_modelspace,1);
 
 }
 

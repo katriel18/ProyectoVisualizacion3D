@@ -95,6 +95,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Esfera.cpp" />
     <ClCompile Include="shader.cpp" />
     <QtRcc Include="ProyectoVisualizacion3D.qrc" />
     <QtUic Include="ProyectoVisualizacion3D.ui" />
@@ -107,6 +108,7 @@
     <ClInclude Include="libs.h" />
     <ClInclude Include="OpenGLWidget.h" />
     <ClInclude Include="shader.hpp" />
+    <ClInclude Include="Sphere.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="fragment_core.glsl" />
