@@ -13,12 +13,12 @@ protected:
     void paintGL();
 
 public:
-  /*  GLuint programID;
+    GLuint programID;
     GLuint VertexArrayID;
     GLuint vertexbuffer;
     GLuint MatrixID;
-    mat4 MVP;*/
+    mat4 MVP;
 
     bool f1, f2;
-    void pintar();
+    void pintarFigura(float vertices[]);
 };
