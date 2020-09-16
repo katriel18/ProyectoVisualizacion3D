@@ -7,7 +7,6 @@ class OpenGLWidget : public QOpenGLWidget
  public:
      OpenGLWidget(QWidget* parent = Q_NULLPTR);
     ~OpenGLWidget();
-   
 protected:
     void initializeGL();
     void resizeGL(int w, int h);
