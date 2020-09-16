@@ -95,6 +95,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="shader.cpp" />
     <QtRcc Include="ProyectoVisualizacion3D.qrc" />
     <QtUic Include="ProyectoVisualizacion3D.ui" />
     <QtMoc Include="ProyectoVisualizacion3D.h" />
@@ -105,6 +106,11 @@
   <ItemGroup>
     <ClInclude Include="libs.h" />
     <ClInclude Include="OpenGLWidget.h" />
+    <ClInclude Include="shader.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fragment_core.glsl" />
+    <None Include="vertex_core.glsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

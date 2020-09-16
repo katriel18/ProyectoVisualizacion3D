@@ -25,6 +25,15 @@
     <Filter Include="Header Files\librerias">
       <UniqueIdentifier>{ed577ef0-de88-4154-838c-f3b28e89ac1e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Resource Files\shaders">
+      <UniqueIdentifier>{8e257134-7517-4667-93c9-4af00f62ee06}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\util">
+      <UniqueIdentifier>{52e797f1-1097-4075-8826-c6e62b67d18b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\util">
+      <UniqueIdentifier>{d34d7a26-ee69-4c35-baf8-64f0ac7c3f2c}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="ProyectoVisualizacion3D.qrc">
@@ -47,6 +56,9 @@
     <ClCompile Include="OpenGLWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="shader.cpp">
+      <Filter>Source Files\util</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLWidget.h">
@@ -55,5 +67,16 @@
     <ClInclude Include="libs.h">
       <Filter>Header Files\librerias</Filter>
     </ClInclude>
+    <ClInclude Include="shader.hpp">
+      <Filter>Header Files\util</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="fragment_core.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="vertex_core.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>

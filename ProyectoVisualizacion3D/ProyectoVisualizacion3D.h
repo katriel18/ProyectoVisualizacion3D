@@ -3,6 +3,11 @@
 #include <QtWidgets/QMainWindow>
 #include "ui_ProyectoVisualizacion3D.h"
 
+#include "OpenGLWidget.h"/*
+QT_BEGIN_NAMESPACE
+namespace Ui { class ProyectoVisualizacion3D; }
+QT_END_NAMESPACE*/
+
 class ProyectoVisualizacion3D : public QMainWindow
 {
     Q_OBJECT
@@ -12,4 +17,16 @@ public:
 
 private:
     Ui::ProyectoVisualizacion3DClass ui;
+
+    /*
+private slots:
+    void on_pushButton_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_3_clicked();
+
+private:
+    Ui::ProyectoVisualizacion3D *ui;
+    OpenGLWidget *OGLW;*/
 };
