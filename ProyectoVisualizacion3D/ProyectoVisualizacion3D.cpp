@@ -4,6 +4,8 @@ ProyectoVisualizacion3D::ProyectoVisualizacion3D(QWidget *parent)
     : QMainWindow(parent)
 {
     ui.setupUi(this);
+
+   
 }
 /*
 void ProyectoVisualizacion3D::on_pushButton_clicked()
