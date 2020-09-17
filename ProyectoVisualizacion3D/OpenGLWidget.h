@@ -26,18 +26,19 @@ public:
     GLfloat colorID3;
 
     mat4 myScalingMatrix;
+    float SCALE;
+    
+
+    const float toRadians = 3.14159265f / 180.0f;
+    mat4 myRotationMatrix;
+    int ROTATE;
 
     mat4 MVP;
 
     int numVertices;
-
     int figura;
-
     boolean fill;
     boolean wire;
-
-    float SCALE;
-
     void seleccionarFigura(int figura);
 
     //PLANOXYZ

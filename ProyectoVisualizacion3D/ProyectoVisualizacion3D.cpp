@@ -7,9 +7,6 @@ ProyectoVisualizacion3D::ProyectoVisualizacion3D(QWidget *parent)
     OGLW = new OpenGLWidget();
     ui.verticalLayout->addWidget(OGLW);
    
-    ui.horizontalSlider->setMinimum(2);
-    ui.horizontalSlider->setMaximum(50);
-    ui.label_2->setText("0");
     
 }
 //TRIANGULO
@@ -76,16 +73,6 @@ void ProyectoVisualizacion3D::on_pushButton_5_clicked()
     }
         OGLW->update();
 
-/*
-    if (OGLW->SCALE == 1.0f || OGLW->SCALE == 0.5f) {
-        OGLW->SCALE=2.0f;
-
-
-    }else if(OGLW->SCALE == 2.0f) {
-        OGLW->SCALE = 0.5f;
-    }
-    OGLW->update();
-*/
 }
 //ESFERA 1
 void ProyectoVisualizacion3D ::on_pushButton_6_clicked() {
@@ -119,12 +106,20 @@ void ProyectoVisualizacion3D::on_pushButton_9_clicked() {
     OGLW->update();
 
 }
-//ROTAR
+//ROTAR RotateX[-359, 359]  SegmentsX[3, 1000]
 void ProyectoVisualizacion3D::on_pushButton_10_clicked() {
 
-    if (OGLW->SCALE > 0.0) {
-        OGLW->SCALE = OGLW->SCALE - 0.1f;
+    if (OGLW->ROTATE >-360) {
+        OGLW->ROTATE = OGLW->ROTATE - 1;
     }
     OGLW->update();
+   
+}
 
+void ProyectoVisualizacion3D::on_pushButton_11_clicked() {
+   
+    if (OGLW->ROTATE < 360) {
+        OGLW->ROTATE = OGLW->ROTATE +1;
+    }
+    OGLW->update();
 }

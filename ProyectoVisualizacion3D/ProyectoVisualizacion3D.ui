@@ -43,7 +43,7 @@
        <x>10</x>
        <y>20</y>
        <width>71</width>
-       <height>21</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -56,7 +56,7 @@
        <x>80</x>
        <y>20</y>
        <width>81</width>
-       <height>21</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -67,9 +67,9 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>60</y>
+       <y>50</y>
        <width>71</width>
-       <height>21</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -80,9 +80,9 @@
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>60</y>
+       <y>50</y>
        <width>81</width>
-       <height>21</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -93,9 +93,9 @@
      <property name="geometry">
       <rect>
        <x>160</x>
-       <y>60</y>
+       <y>50</y>
        <width>71</width>
-       <height>21</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -107,9 +107,9 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>170</y>
+      <y>160</y>
       <width>241</width>
-      <height>51</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -121,7 +121,7 @@
        <x>10</x>
        <y>20</y>
        <width>75</width>
-       <height>21</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -133,8 +133,8 @@
       <rect>
        <x>80</x>
        <y>20</y>
-       <width>75</width>
-       <height>21</height>
+       <width>81</width>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
@@ -146,9 +146,9 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>290</y>
+      <y>280</y>
       <width>241</width>
-      <height>71</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
@@ -159,66 +159,14 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>360</y>
+      <y>340</y>
       <width>241</width>
-      <height>151</height>
+      <height>171</height>
      </rect>
     </property>
     <property name="title">
      <string>CAMERA</string>
     </property>
-    <widget class="QSlider" name="horizontalSlider">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>30</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QSlider" name="horizontalSlider_2">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>60</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QSlider" name="horizontalSlider_3">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>90</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
-    <widget class="QSlider" name="horizontalSlider_4">
-     <property name="geometry">
-      <rect>
-       <x>70</x>
-       <y>120</y>
-       <width>160</width>
-       <height>22</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-    </widget>
     <widget class="QLabel" name="label_2">
      <property name="geometry">
       <rect>
@@ -229,7 +177,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_3">
@@ -242,7 +190,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_4">
@@ -255,7 +203,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>TextLabel</string>
+      <string/>
      </property>
     </widget>
     <widget class="QLabel" name="label_5">
@@ -269,6 +217,32 @@
      </property>
      <property name="text">
       <string>TextLabel</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_10">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>20</y>
+       <width>71</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>- x</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_11">
+     <property name="geometry">
+      <rect>
+       <x>150</x>
+       <y>20</y>
+       <width>75</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>+ x</string>
      </property>
     </widget>
    </widget>
@@ -320,14 +294,14 @@
     <widget class="QPushButton" name="pushButton_5">
      <property name="geometry">
       <rect>
-       <x>10</x>
+       <x>160</x>
        <y>20</y>
        <width>81</width>
        <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>SCALE +</string>
+      <string> +</string>
      </property>
     </widget>
     <widget class="QPushButton" name="pushButton_9">
@@ -340,20 +314,7 @@
       </rect>
      </property>
      <property name="text">
-      <string>SCALE -</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="pushButton_10">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>20</y>
-       <width>75</width>
-       <height>31</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>ROTAR</string>
+      <string> -</string>
      </property>
     </widget>
    </widget>

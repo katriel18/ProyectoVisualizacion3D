@@ -12,6 +12,7 @@ OpenGLWidget::OpenGLWidget(QWidget* parent) :
 	wire = false;
 
 	SCALE = 1.0f;
+	ROTATE = 0;
 
 	colorID1 = 0.0f;
 	colorID2 = 0.0f;
@@ -96,8 +97,15 @@ void OpenGLWidget::paintGL() {
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myScalingMatrix[0][0]);
 		//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, value_ptr(myScalingMatrix));	//Incluir la libreria type_ptr
 			
+		//rotacion
+		vec3 myRotationAxis(1.0f, 0.0f, 0.0f);// Eje de Rotaci�n x
+		//vec3 myRotationAxis(0.0f, 1.0f, 0.0f);// Eje de Rotaci�n y
+		//vec3 myRotationAxis(0.0f, 0.0f, 1.0f);// Eje de Rotaci�n Z
 
-		//glUniformMatrix4fv(MatrixID, 1, GL_FALSE,&myRotationMatrix);	//Incluir la libreria type_ptr
+		//matriz de rotacion de 45 grados en el eje ...
+		 myRotationMatrix = rotate(mat4(1.0),ROTATE * toRadians, myRotationAxis);//(I,angulo en grados, mi Eje de Rotacion)
+
+		glUniformMatrix4fv(MatrixID, 1, GL_FALSE,&myRotationMatrix[0][0]);	//Incluir la libreria type_ptr
 
 
 
