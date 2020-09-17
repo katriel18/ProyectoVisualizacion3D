@@ -96,6 +96,11 @@ void OpenGLWidget::paintGL() {
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myScalingMatrix[0][0]);
 		//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, value_ptr(myScalingMatrix));	//Incluir la libreria type_ptr
 			
+
+		//glUniformMatrix4fv(MatrixID, 1, GL_FALSE,&myRotationMatrix);	//Incluir la libreria type_ptr
+
+
+
 		// 1er bufer de atributo: vertices
 		glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);

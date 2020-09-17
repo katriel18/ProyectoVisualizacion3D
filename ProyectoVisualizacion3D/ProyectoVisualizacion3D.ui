@@ -309,13 +309,13 @@
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>230</y>
+      <y>220</y>
       <width>241</width>
-      <height>51</height>
+      <height>61</height>
      </rect>
     </property>
     <property name="title">
-     <string>ATAJO</string>
+     <string>ESCALE</string>
     </property>
     <widget class="QPushButton" name="pushButton_5">
      <property name="geometry">
@@ -323,11 +323,37 @@
        <x>10</x>
        <y>20</y>
        <width>81</width>
-       <height>23</height>
+       <height>31</height>
       </rect>
      </property>
      <property name="text">
-      <string>SCALE</string>
+      <string>SCALE +</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_9">
+     <property name="geometry">
+      <rect>
+       <x>90</x>
+       <y>20</y>
+       <width>75</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>SCALE -</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_10">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>20</y>
+       <width>75</width>
+       <height>31</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ROTAR</string>
      </property>
     </widget>
    </widget>

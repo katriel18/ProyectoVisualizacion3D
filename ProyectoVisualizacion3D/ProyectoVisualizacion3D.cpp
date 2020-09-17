@@ -66,10 +66,17 @@ void ProyectoVisualizacion3D::on_pushButton_4_clicked()
     
 }
 
-//SCALA
+//SCALE ++
 void ProyectoVisualizacion3D::on_pushButton_5_clicked()
 {
 
+    //1.0 
+    if (OGLW->SCALE < 2.0) {
+        OGLW->SCALE = OGLW->SCALE + 0.1f;
+    }
+        OGLW->update();
+
+/*
     if (OGLW->SCALE == 1.0f || OGLW->SCALE == 0.5f) {
         OGLW->SCALE=2.0f;
 
@@ -78,7 +85,7 @@ void ProyectoVisualizacion3D::on_pushButton_5_clicked()
         OGLW->SCALE = 0.5f;
     }
     OGLW->update();
-
+*/
 }
 //ESFERA 1
 void ProyectoVisualizacion3D ::on_pushButton_6_clicked() {
@@ -99,6 +106,25 @@ void ProyectoVisualizacion3D::on_pushButton_7_clicked() {
 void ProyectoVisualizacion3D::on_pushButton_8_clicked() {
 
     OGLW->figura = 5;
+    OGLW->update();
+
+}
+
+/// SCALE --
+void ProyectoVisualizacion3D::on_pushButton_9_clicked() {
+
+    if (OGLW->SCALE > 0.0) {
+        OGLW->SCALE = OGLW->SCALE - 0.1f;
+    }
+    OGLW->update();
+
+}
+//ROTAR
+void ProyectoVisualizacion3D::on_pushButton_10_clicked() {
+
+    if (OGLW->SCALE > 0.0) {
+        OGLW->SCALE = OGLW->SCALE - 0.1f;
+    }
     OGLW->update();
 
 }
