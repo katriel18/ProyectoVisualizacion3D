@@ -38,9 +38,9 @@ Cono::Cono(int segX, int segY) {
 				float y = (float)i/segY;
 				float x = -(float)cos(toRadians(j*360.0f / segX))*(float)(1-y);
 				float z = (float)sin(toRadians(j*360.0f / segX)) * (float)(1-y);
-				vertices[i*(segX + 1) + j] = vec3(x, y, z);
+				vertices[i*(segX + 1) + j] = vec3(x, y-0.5, z);
 				//texCoords[i*(segY + 1) + j] = vec2(((float)j / segY), ((float)i / segX));
-				normals[i*(segX + 1) + j] = vec3(x,y,z);
+				normals[i*(segX + 1) + j] = vec3(x,y-0.5,z);
 				}
 		}
 
