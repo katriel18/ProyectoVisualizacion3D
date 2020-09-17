@@ -185,3 +185,11 @@ void ProyectoVisualizacion3D::on_pushButton_17_clicked() {
 
     OGLW->update();
 }
+
+//CONO
+void ProyectoVisualizacion3D::on_pushButton_18_clicked() {
+
+    OGLW->figura = 6;
+    OGLW->update();
+    
+}

@@ -74,6 +74,9 @@
     <ClCompile Include="Torus.cpp">
       <Filter>Source Files\figuras</Filter>
     </ClCompile>
+    <ClCompile Include="Cono.cpp">
+      <Filter>Source Files\figuras</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLWidget.h">
@@ -92,6 +95,9 @@
       <Filter>Header Files\figuras</Filter>
     </ClInclude>
     <ClInclude Include="Torus.h">
+      <Filter>Header Files\figuras</Filter>
+    </ClInclude>
+    <ClInclude Include="Cono.h">
       <Filter>Header Files\figuras</Filter>
     </ClInclude>
   </ItemGroup>

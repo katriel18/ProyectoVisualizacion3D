@@ -39,7 +39,7 @@ private slots:
    void on_pushButton_15_clicked();
    void on_pushButton_16_clicked();
    void on_pushButton_17_clicked();
-
+   void on_pushButton_18_clicked();
 private:
     OpenGLWidget *OGLW;
 };

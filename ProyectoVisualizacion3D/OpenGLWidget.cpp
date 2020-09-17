@@ -4,6 +4,8 @@
 #include "Sphere.h"
 #include "Sphere2.h"
 #include "Torus.h"
+#include "Cono.h"
+
 OpenGLWidget::OpenGLWidget(QWidget* parent) :
 	QOpenGLWidget(parent)
 {
@@ -89,6 +91,9 @@ void OpenGLWidget::paintGL() {
 	}else if (figura == 5) {
 		seleccionarFigura(5);//torus
 	}
+	else if (figura == 6) {
+		seleccionarFigura(6);//torus
+	}
 
 	if (figura != 0) {
 
@@ -121,7 +126,7 @@ void OpenGLWidget::paintGL() {
 			(void*)0            // array buffer offset
 		);
 
-		if (fill == true && figura!=5) {
+		if (fill == true && figura<5 ) {
 
 			// DESHabilitar prueba de profundidad
 			glDisable(GL_DEPTH_TEST);
@@ -131,7 +136,7 @@ void OpenGLWidget::paintGL() {
 			glProgramUniform1f(programID, colorID3, 0.52f);
 			glDrawArrays(GL_TRIANGLES, 0, numVertices);
 
-		}else if (fill == true && figura == 5) {
+		}else if (fill == true && figura >= 5) {
 
 			// Habilitar prueba de profundidad
 			glEnable(GL_DEPTH_TEST);
@@ -143,7 +148,7 @@ void OpenGLWidget::paintGL() {
 
 		}
 
-		if(wire==true && figura != 5) {
+		if(wire==true && figura < 5) {
 
 			// DESAHabilitar prueba de profundidad
 			glDisable(GL_DEPTH_TEST);
@@ -154,7 +159,7 @@ void OpenGLWidget::paintGL() {
 			glProgramUniform1f(programID, colorID3, 0.0f);
 			glDrawArrays(GL_LINE_LOOP, 0, numVertices);
 				
-		}else if(wire == true && figura == 5){
+		}else if(wire == true && figura >= 5){
 
 			// Habilitar prueba de profundidad
 			glEnable(GL_DEPTH_TEST);
@@ -362,9 +367,42 @@ void OpenGLWidget::seleccionarFigura(int figura)
 			GL_STATIC_DRAW);
 */
 
+		
 
 
+	}else if (figura == 6) {
 
+		Cono Cono_prueba(SEGMENTS, SEGMENTS);
+		vector<int> ind = Cono_prueba.getIndices();
+		vector<vec3> vert = Cono_prueba.getVertices();
+		//vector<vec2> tex = Cono_prueba.getTexCoords();
+		//vector<vec3> norm = Cono_prueba.getNormals();
+		vector<float> pvalues;  // vertex positions
+		//vector<float> tvalues;  // texture coordinates
+		//vector<float> nvalues;  // normal vectors
+
+		//int numIndices = Cono_prueba.getNumIndices();
+		for (int i = 0; i < Cono_prueba.getNumVertices(); i++) {
+			pvalues.push_back(vert[i].x);
+			pvalues.push_back(vert[i].y);
+			pvalues.push_back(vert[i].z);
+			//tvalues.push_back((tex[ind[i]]).s);
+			//tvalues.push_back((tex[ind[i]]).t);
+			//nvalues.push_back((norm[ind[i]]).x);
+			//nvalues.push_back((norm[ind[i]]).y);
+			//nvalues.push_back((norm[ind[i]]).z);
+		}
+		glGenVertexArrays(1, vao);
+		glBindVertexArray(vao[0]);
+		glGenBuffers(2, vbo); // put the vertices into buffer #0
+
+		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+		glBufferData(GL_ARRAY_BUFFER, pvalues.size() *4/* sizeof(GLfloat)*/, &pvalues[0], GL_STATIC_DRAW); // put the texture coordinates into buffer #1
+
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vbo[1]);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, ind.size()*4 /* sizeof(GLfloat)*/, &ind[0], GL_STATIC_DRAW);
+	
+		numVertices = Cono_prueba.getNumIndices();
 	}
 	
 }
