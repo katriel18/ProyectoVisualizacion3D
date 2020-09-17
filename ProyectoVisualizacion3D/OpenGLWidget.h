@@ -26,20 +26,14 @@ public:
     GLfloat colorID3;
 
     mat4 model;
-    mat4 myScalingMatrix;
+
     float SCALE;
     
-
     const float toRadians = 3.14159265f / 180.0f;
-    mat4 myRotationMatrix;
-    boolean ROTATEX;
-    boolean ROTATEY;
-    boolean ROTATEZ;
     int GRADOX;
     int GRADOY;
     int GRADOZ;
 
-    mat4 MVP;
 
     int numVertices;
     int figura;
@@ -52,7 +46,7 @@ public:
     GLuint VAO;
     GLuint VBO;
     GLuint matrixPlanoID;
-    mat4 myScalingMatrixPlano;
+    mat4 modelPlano;
 
     GLfloat colorPlanoID1;
     GLfloat colorPlanoID2;

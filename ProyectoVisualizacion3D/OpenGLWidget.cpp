@@ -11,15 +11,13 @@ OpenGLWidget::OpenGLWidget(QWidget* parent) :
 	fill = false;
 	wire = false;
 
+	model = mat4(1.0f);
 	SCALE = 1.0f;
-	ROTATEX = false;
-	ROTATEY= false;
-	ROTATEZ= false;
 	GRADOX = 0;
 	GRADOY = 0;
 	GRADOZ = 0;
-	model = mat4(1.0f);
 
+	modelPlano = mat4(1.0f);
 	colorID1 = 0.0f;
 	colorID2 = 0.0f;
 	colorID3 = 0.0f;
@@ -408,16 +406,24 @@ void OpenGLWidget::planoDisplay()
 {
 	// Clear the screen
 	glClear(GL_COLOR_BUFFER_BIT);
-
+	glEnable(GL_DEPTH_TEST);
 	// Use our shader
 	glUseProgram(planoID);
-/*
-	//Escalamiento
-	myScalingMatrixPlano = scale(mat4(1.0), vec3(SCALE, SCALE, SCALE));
 
-	//Envie nuestra transformacion al sombreador "MVP"
-	glUniformMatrix4fv(matrixPlanoID, 1, GL_FALSE, &myScalingMatrixPlano[0][0]);
-*/	
+	//escalamiento
+	modelPlano = scale(mat4(1.0f), vec3(SCALE, SCALE, SCALE));
+
+	//rotacion
+	vec3 myRotationAxisPlano;
+	myRotationAxisPlano = vec3(1.0f, 0.0f, 0.0f);// Eje de Rotacion x
+	modelPlano = rotate(modelPlano, GRADOX * toRadians, myRotationAxisPlano);
+	myRotationAxisPlano = vec3(0.0f, 1.0f, 0.0f);// Eje de Rotacion Y
+	modelPlano = rotate(modelPlano, GRADOY * toRadians, myRotationAxisPlano);
+	myRotationAxisPlano = vec3(0.0f, 0.0f, 1.0f);// Eje de Rotacion Z
+	modelPlano = rotate(modelPlano, GRADOZ * toRadians, myRotationAxisPlano);
+
+	glUniformMatrix4fv(matrixPlanoID, 1, GL_FALSE, &modelPlano[0][0]);
+
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
