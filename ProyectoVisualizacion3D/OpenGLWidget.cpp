@@ -406,7 +406,7 @@ void OpenGLWidget::planoDisplay()
 {
 	// Clear the screen
 	glClear(GL_COLOR_BUFFER_BIT);
-	glEnable(GL_DEPTH_TEST);
+	//glEnable(GL_DEPTH_TEST);//hace desaparecer el plano
 	// Use our shader
 	glUseProgram(planoID);
 
