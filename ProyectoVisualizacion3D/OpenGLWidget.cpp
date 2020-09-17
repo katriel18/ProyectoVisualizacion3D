@@ -18,7 +18,7 @@ OpenGLWidget::OpenGLWidget(QWidget* parent) :
 	GRADOX = 0;
 	GRADOY = 0;
 	GRADOZ = 0;
-	myRotationMatrix = mat4(1.0f);
+	model = mat4(1.0f);
 
 	colorID1 = 0.0f;
 	colorID2 = 0.0f;
@@ -97,37 +97,19 @@ void OpenGLWidget::paintGL() {
 		glUseProgram(programID);
 
 		//escalamiento
-		myScalingMatrix = scale(mat4(1.0), vec3(SCALE, SCALE, SCALE));
+		model = scale(mat4(1.0f), vec3(SCALE, SCALE, SCALE));
 
-		//Envie nuestra transformacion al sombreador "MVP"
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myScalingMatrix[0][0]);
-		//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, value_ptr(myScalingMatrix));	//Incluir la libreria type_ptr
-			
+		//rotacion
 		vec3 myRotationAxis;
-		if(ROTATEX) {
-			myRotationAxis= vec3(1.0f, 0.0f, 0.0f);// Eje de Rotacion x
-			//rotacion
-			myRotationMatrix = rotate(myRotationMatrix,GRADOX * toRadians, myRotationAxis);
-			ROTATEX = false;
-			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myRotationMatrix[0][0]);
+		myRotationAxis= vec3(1.0f, 0.0f, 0.0f);// Eje de Rotacion x
+		model = rotate(model,GRADOX * toRadians, myRotationAxis);
+		myRotationAxis = vec3(0.0f, 1.0f, 0.0f);// Eje de Rotacion Y
+		model = rotate(model, GRADOY * toRadians, myRotationAxis);
+		myRotationAxis = vec3(0.0f, 0.0f, 1.0f);// Eje de Rotacion Z
+		model = rotate(model, GRADOZ * toRadians, myRotationAxis);
 
-		}else if (ROTATEY) {
-			myRotationAxis = vec3(0.0f, 1.0f, 0.0f);// Eje de Rotacion Y
-			//rotacion
-			myRotationMatrix = rotate(myRotationMatrix, GRADOY * toRadians, myRotationAxis);
-			ROTATEY = false;
-			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myRotationMatrix[0][0]);
+		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &model[0][0]);
 
-		}else if (ROTATEZ) {
-			myRotationAxis = vec3(0.0f, 0.0f, 1.0f);// Eje de Rotacion Z
-			//rotacion
-			myRotationMatrix = rotate(myRotationMatrix, GRADOZ * toRadians, myRotationAxis);
-			ROTATEZ = false;
-			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myRotationMatrix[0][0]);
-
-		}
-
-		
 		// 1er bufer de atributo: vertices
 		glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
@@ -429,13 +411,13 @@ void OpenGLWidget::planoDisplay()
 
 	// Use our shader
 	glUseProgram(planoID);
-	
+/*
 	//Escalamiento
 	myScalingMatrixPlano = scale(mat4(1.0), vec3(SCALE, SCALE, SCALE));
 
 	//Envie nuestra transformacion al sombreador "MVP"
 	glUniformMatrix4fv(matrixPlanoID, 1, GL_FALSE, &myScalingMatrixPlano[0][0]);
-	
+*/	
 	// 1rst attribute buffer : vertices
 	glEnableVertexAttribArray(0);
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);

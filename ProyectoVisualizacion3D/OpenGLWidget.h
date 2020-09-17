@@ -25,6 +25,7 @@ public:
     GLfloat colorID2;
     GLfloat colorID3;
 
+    mat4 model;
     mat4 myScalingMatrix;
     float SCALE;
     
