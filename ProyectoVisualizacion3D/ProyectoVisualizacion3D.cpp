@@ -95,3 +95,10 @@ void ProyectoVisualizacion3D::on_pushButton_7_clicked() {
     OGLW->update();
 
 }
+//TORUS
+void ProyectoVisualizacion3D::on_pushButton_8_clicked() {
+
+    OGLW->figura = 5;
+    OGLW->update();
+
+}

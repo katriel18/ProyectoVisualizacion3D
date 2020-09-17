@@ -31,7 +31,7 @@
       <x>590</x>
       <y>60</y>
       <width>241</width>
-      <height>111</height>
+      <height>91</height>
      </rect>
     </property>
     <property name="title">
@@ -67,7 +67,7 @@
      <property name="geometry">
       <rect>
        <x>10</x>
-       <y>40</y>
+       <y>60</y>
        <width>71</width>
        <height>21</height>
       </rect>
@@ -80,13 +80,26 @@
      <property name="geometry">
       <rect>
        <x>80</x>
-       <y>40</y>
+       <y>60</y>
        <width>81</width>
        <height>21</height>
       </rect>
      </property>
      <property name="text">
       <string>ESFERA 2</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_8">
+     <property name="geometry">
+      <rect>
+       <x>160</x>
+       <y>60</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>TORUS</string>
      </property>
     </widget>
    </widget>

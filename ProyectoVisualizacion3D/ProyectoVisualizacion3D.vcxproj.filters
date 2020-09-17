@@ -71,6 +71,9 @@
     <ClCompile Include="Sphere2.cpp">
       <Filter>Source Files\figuras</Filter>
     </ClCompile>
+    <ClCompile Include="Torus.cpp">
+      <Filter>Source Files\figuras</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="OpenGLWidget.h">
@@ -86,6 +89,9 @@
       <Filter>Header Files\figuras</Filter>
     </ClInclude>
     <ClInclude Include="Sphere2.h">
+      <Filter>Header Files\figuras</Filter>
+    </ClInclude>
+    <ClInclude Include="Torus.h">
       <Filter>Header Files\figuras</Filter>
     </ClInclude>
   </ItemGroup>
