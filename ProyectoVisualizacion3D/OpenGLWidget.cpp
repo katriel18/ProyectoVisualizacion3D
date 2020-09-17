@@ -12,7 +12,13 @@ OpenGLWidget::OpenGLWidget(QWidget* parent) :
 	wire = false;
 
 	SCALE = 1.0f;
-	ROTATE = 0;
+	ROTATEX = false;
+	ROTATEY= false;
+	ROTATEZ= false;
+	GRADOX = 0;
+	GRADOY = 0;
+	GRADOZ = 0;
+	myRotationMatrix = mat4(1.0f);
 
 	colorID1 = 0.0f;
 	colorID2 = 0.0f;
@@ -97,18 +103,31 @@ void OpenGLWidget::paintGL() {
 		glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myScalingMatrix[0][0]);
 		//glUniformMatrix4fv(MatrixID, 1, GL_FALSE, value_ptr(myScalingMatrix));	//Incluir la libreria type_ptr
 			
-		//rotacion
-		vec3 myRotationAxis(1.0f, 0.0f, 0.0f);// Eje de Rotaci�n x
-		//vec3 myRotationAxis(0.0f, 1.0f, 0.0f);// Eje de Rotaci�n y
-		//vec3 myRotationAxis(0.0f, 0.0f, 1.0f);// Eje de Rotaci�n Z
+		vec3 myRotationAxis;
+		if(ROTATEX) {
+			myRotationAxis= vec3(1.0f, 0.0f, 0.0f);// Eje de Rotacion x
+			//rotacion
+			myRotationMatrix = rotate(myRotationMatrix,GRADOX * toRadians, myRotationAxis);
+			ROTATEX = false;
+			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myRotationMatrix[0][0]);
 
-		//matriz de rotacion de 45 grados en el eje ...
-		 myRotationMatrix = rotate(mat4(1.0),ROTATE * toRadians, myRotationAxis);//(I,angulo en grados, mi Eje de Rotacion)
+		}else if (ROTATEY) {
+			myRotationAxis = vec3(0.0f, 1.0f, 0.0f);// Eje de Rotacion Y
+			//rotacion
+			myRotationMatrix = rotate(myRotationMatrix, GRADOY * toRadians, myRotationAxis);
+			ROTATEY = false;
+			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myRotationMatrix[0][0]);
 
-		glUniformMatrix4fv(MatrixID, 1, GL_FALSE,&myRotationMatrix[0][0]);	//Incluir la libreria type_ptr
+		}else if (ROTATEZ) {
+			myRotationAxis = vec3(0.0f, 0.0f, 1.0f);// Eje de Rotacion Z
+			//rotacion
+			myRotationMatrix = rotate(myRotationMatrix, GRADOZ * toRadians, myRotationAxis);
+			ROTATEZ = false;
+			glUniformMatrix4fv(MatrixID, 1, GL_FALSE, &myRotationMatrix[0][0]);
 
+		}
 
-
+		
 		// 1er bufer de atributo: vertices
 		glEnableVertexAttribArray(0);
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);

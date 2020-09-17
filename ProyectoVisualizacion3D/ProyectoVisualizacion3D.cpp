@@ -106,20 +106,63 @@ void ProyectoVisualizacion3D::on_pushButton_9_clicked() {
     OGLW->update();
 
 }
-//ROTAR RotateX[-359, 359]  SegmentsX[3, 1000]
+
+//ROTAR RotateX[-359, 359]  
 void ProyectoVisualizacion3D::on_pushButton_10_clicked() {
 
-    if (OGLW->ROTATE >-360) {
-        OGLW->ROTATE = OGLW->ROTATE - 1;
+    if (OGLW->GRADOX >-360) {
+        OGLW->GRADOX = OGLW->GRADOX - 1;
     }
+    OGLW->ROTATEX = true;
     OGLW->update();
    
 }
 
 void ProyectoVisualizacion3D::on_pushButton_11_clicked() {
    
-    if (OGLW->ROTATE < 360) {
-        OGLW->ROTATE = OGLW->ROTATE +1;
+    if (OGLW->GRADOX < 360) {
+        OGLW->GRADOX = OGLW->GRADOX +1;
     }
+    OGLW->ROTATEX = true;
     OGLW->update();
 }
+
+//ROTAR Y 
+void ProyectoVisualizacion3D::on_pushButton_12_clicked() {
+
+    if (OGLW->GRADOY > -360) {
+        OGLW->GRADOY = OGLW->GRADOY - 1;
+    }
+    OGLW->ROTATEY = true;
+    OGLW->update();
+
+}
+
+void ProyectoVisualizacion3D::on_pushButton_13_clicked() {
+
+    if (OGLW->GRADOY < 360) {
+        OGLW->GRADOY = OGLW->GRADOY + 1;
+    }
+    OGLW->ROTATEY = true;
+    OGLW->update();
+}
+//ROTAR Z 
+void ProyectoVisualizacion3D::on_pushButton_14_clicked() {
+
+    if (OGLW->GRADOZ > -360) {
+        OGLW->GRADOZ = OGLW->GRADOZ - 1;
+    }
+    OGLW->ROTATEZ = true;
+    OGLW->update();
+
+}
+
+void ProyectoVisualizacion3D::on_pushButton_15_clicked() {
+
+    if (OGLW->GRADOZ < 360) {
+        OGLW->GRADOZ = OGLW->GRADOZ + 1;
+    }
+    OGLW->ROTATEZ = true;
+    OGLW->update();
+}
+//SegmentsX[3, 1000]

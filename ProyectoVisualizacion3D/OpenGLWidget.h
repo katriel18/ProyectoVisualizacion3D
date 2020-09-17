@@ -31,7 +31,12 @@ public:
 
     const float toRadians = 3.14159265f / 180.0f;
     mat4 myRotationMatrix;
-    int ROTATE;
+    boolean ROTATEX;
+    boolean ROTATEY;
+    boolean ROTATEZ;
+    int GRADOX;
+    int GRADOY;
+    int GRADOZ;
 
     mat4 MVP;
 
