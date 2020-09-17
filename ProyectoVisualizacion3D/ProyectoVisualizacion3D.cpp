@@ -165,4 +165,23 @@ void ProyectoVisualizacion3D::on_pushButton_15_clicked() {
    
     OGLW->update();
 }
-//SegmentsX[3, 1000]
+
+//SegmentsX[3, 1000]//MAXIMO 300 SEGMENTOS
+void ProyectoVisualizacion3D::on_pushButton_16_clicked() {
+
+    if (OGLW->SEGMENTS > 2) {
+        OGLW->SEGMENTS = OGLW->SEGMENTS - 1;
+    }
+
+    OGLW->update();
+
+}
+
+void ProyectoVisualizacion3D::on_pushButton_17_clicked() {
+
+    if (OGLW->SEGMENTS < 301) {
+        OGLW->SEGMENTS = OGLW->SEGMENTS + 1;
+    }
+
+    OGLW->update();
+}

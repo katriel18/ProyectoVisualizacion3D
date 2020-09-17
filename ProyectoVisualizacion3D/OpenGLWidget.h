@@ -28,6 +28,7 @@ public:
     mat4 model;
 
     float SCALE;
+    int SEGMENTS;
     
     const float toRadians = 3.14159265f / 180.0f;
     int GRADOX;

@@ -13,6 +13,7 @@ OpenGLWidget::OpenGLWidget(QWidget* parent) :
 
 	model = mat4(1.0f);
 	SCALE = 1.0f;
+	SEGMENTS = 3;
 	GRADOX = 0;
 	GRADOY = 0;
 	GRADOZ = 0;
@@ -212,7 +213,9 @@ void OpenGLWidget::seleccionarFigura(int figura)
 
 		numVertices = 6;
 	}else if (figura == 3) {
-		Sphere mySphere(5,5);
+
+		Sphere mySphere(SEGMENTS, SEGMENTS);//Sphere mySphere(5, 5);
+
 		vector<int> ind = mySphere.getIndices();
 		vector<vec3> vert = mySphere.getVertices();
 		//vector<vec2> tex = mySphere.getTexCoords();
@@ -261,7 +264,8 @@ void OpenGLWidget::seleccionarFigura(int figura)
 
 	}else if (figura == 4) {
 
-		Sphere2 mySphere2(5);//Sphere mySphere(48);
+		//Sphere2 mySphere2(5);//Sphere mySphere(48);
+		Sphere2 mySphere2(SEGMENTS);
 
 		std::vector<int> ind = mySphere2.getIndices();
 		std::vector<glm::vec3> vert = mySphere2.getVertices();
@@ -305,7 +309,7 @@ void OpenGLWidget::seleccionarFigura(int figura)
 
 
 
-		Torus myTorus(0.5f, 0.2f, 15);
+		Torus myTorus(0.5f, 0.2f, SEGMENTS);//Torus myTorus(0.5f, 0.2f, 15);
 
 		std::vector<int> ind = myTorus.getIndices();
 		std::vector<glm::vec3> vert = myTorus.getVertices();
