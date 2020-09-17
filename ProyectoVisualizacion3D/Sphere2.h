@@ -1,9 +1,7 @@
-#ifndef GEOMETRY_H
-#define GEOMETRY_H
-
+#include <cmath>
 #include <vector>
-
-class Sphere{
+#include <glm.hpp>
+class Sphere2 {
 private:
 	int numVertices;
 	int numIndices;
@@ -11,11 +9,11 @@ private:
 	std::vector<glm::vec3> vertices;
 	std::vector<glm::vec2> texCoords;
 	std::vector<glm::vec3> normals;
-	void init(int segX, int segY);
+	void init(int);
 	float toRadians(float degrees);
-
 public:
-	Sphere(int segX, int segY);
+	Sphere2();
+	Sphere2(int prec);
 	int getNumVertices();
 	int getNumIndices();
 	std::vector<int> getIndices();
@@ -23,5 +21,3 @@ public:
 	std::vector<glm::vec2> getTexCoords();
 	std::vector<glm::vec3> getNormals();
 };
-
-#endif

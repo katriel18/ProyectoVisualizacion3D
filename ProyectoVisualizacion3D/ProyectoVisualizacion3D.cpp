@@ -12,7 +12,7 @@ ProyectoVisualizacion3D::ProyectoVisualizacion3D(QWidget *parent)
     ui.label_2->setText("0");
     
 }
-
+//TRIANGULO
 void ProyectoVisualizacion3D::on_pushButton_clicked()
 {
    
@@ -22,6 +22,7 @@ void ProyectoVisualizacion3D::on_pushButton_clicked()
   
 
 }
+//CUADARADO
 void ProyectoVisualizacion3D::on_pushButton_2_clicked()
 {
     
@@ -31,6 +32,7 @@ void ProyectoVisualizacion3D::on_pushButton_2_clicked()
 
 }
 
+//FILL
 void ProyectoVisualizacion3D::on_pushButton_3_clicked()
 {
     if (OGLW->fill == false) {
@@ -47,6 +49,7 @@ void ProyectoVisualizacion3D::on_pushButton_3_clicked()
 
 }
 
+//WIRE
 void ProyectoVisualizacion3D::on_pushButton_4_clicked()
 {
 
@@ -63,7 +66,7 @@ void ProyectoVisualizacion3D::on_pushButton_4_clicked()
     
 }
 
-
+//SCALA
 void ProyectoVisualizacion3D::on_pushButton_5_clicked()
 {
 
@@ -74,6 +77,21 @@ void ProyectoVisualizacion3D::on_pushButton_5_clicked()
     }else if(OGLW->SCALE == 2.0f) {
         OGLW->SCALE = 0.5f;
     }
+    OGLW->update();
+
+}
+//ESFERA 1
+void ProyectoVisualizacion3D ::on_pushButton_6_clicked() {
+
+    OGLW->figura = 3;
+    OGLW->update();
+
+}
+
+//ESFERA 2
+void ProyectoVisualizacion3D::on_pushButton_7_clicked() {
+
+    OGLW->figura = 4;
     OGLW->update();
 
 }

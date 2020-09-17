@@ -65,7 +65,10 @@
     <ClCompile Include="shader.cpp">
       <Filter>Source Files\util</Filter>
     </ClCompile>
-    <ClCompile Include="Esfera.cpp">
+    <ClCompile Include="Sphere.cpp">
+      <Filter>Source Files\figuras</Filter>
+    </ClCompile>
+    <ClCompile Include="Sphere2.cpp">
       <Filter>Source Files\figuras</Filter>
     </ClCompile>
   </ItemGroup>
@@ -80,6 +83,9 @@
       <Filter>Header Files\util</Filter>
     </ClInclude>
     <ClInclude Include="Sphere.h">
+      <Filter>Header Files\figuras</Filter>
+    </ClInclude>
+    <ClInclude Include="Sphere2.h">
       <Filter>Header Files\figuras</Filter>
     </ClInclude>
   </ItemGroup>

@@ -2,6 +2,8 @@
 #include "OpenGLWidget.h"
 
 #include "Sphere.h"
+#include "Sphere2.h"
+
 OpenGLWidget::OpenGLWidget(QWidget* parent) :
 	QOpenGLWidget(parent)
 {
@@ -70,9 +72,14 @@ void OpenGLWidget::paintGL() {
 	planoDisplay();
 	//SELECCIONAR FIGURA
 	if (figura == 1) {
-		seleccionarFigura(1);
+		seleccionarFigura(1);//triangulo
 	}else if (figura == 2) {
-		seleccionarFigura(2);
+		seleccionarFigura(2);//cuadrado
+	}
+	else if (figura == 3) {
+		seleccionarFigura(3);//esfera 1
+	}else if (figura == 4) {
+		seleccionarFigura(4);//esfera 2
 	}
 
 	if (figura != 0) {
@@ -130,7 +137,7 @@ void OpenGLWidget::seleccionarFigura(int figura)
 				0.5f, -0.5f, 0.0f,
 				 0.0f,  0.5f, 0.0f
 		};
-		numVertices = 3;
+		
 
 		glGenVertexArrays(1, vao);
 		glBindVertexArray(vao[0]);
@@ -140,7 +147,7 @@ void OpenGLWidget::seleccionarFigura(int figura)
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices_f1), &vertices_f1, GL_STATIC_DRAW);
 
-
+		numVertices = 3;
 	}else if (figura == 2) {
 
 		static const GLfloat vertices_f2[] = {
@@ -152,7 +159,7 @@ void OpenGLWidget::seleccionarFigura(int figura)
 		-0.5f, -0.5f, 0.0f, 
 		 0.5f, -0.5f, 0.0f, 
 			};
-		numVertices = 6;
+		
 		glGenVertexArrays(1, vao);
 		glBindVertexArray(vao[0]);
 
@@ -161,6 +168,98 @@ void OpenGLWidget::seleccionarFigura(int figura)
 		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
 		glBufferData(GL_ARRAY_BUFFER, sizeof(vertices_f2), &vertices_f2, GL_STATIC_DRAW);
 
+		numVertices = 6;
+	}
+	else if (figura == 3) {
+		Sphere mySphere(5,5);
+		vector<int> ind = mySphere.getIndices();
+		vector<vec3> vert = mySphere.getVertices();
+		//vector<vec2> tex = mySphere.getTexCoords();
+		//vector<vec3> norm = mySphere.getNormals();
+		vector<float> pvalues;  // vertex positions
+		//vector<float> tvalues;  // texture coordinates
+		//vector<float> nvalues;  // normal vectors
+		int numIndices = mySphere.getNumIndices();
+		for (int i = 0; i < numIndices; i++) {
+			pvalues.push_back((vert[ind[i]]).x);
+			pvalues.push_back((vert[ind[i]]).y);
+			pvalues.push_back((vert[ind[i]]).z);
+
+			//tvalues.push_back((tex[ind[i]]).s);
+			//tvalues.push_back((tex[ind[i]]).t);
+			//nvalues.push_back((norm[ind[i]]).x);
+			//nvalues.push_back((norm[ind[i]]).y);
+			//nvalues.push_back((norm[ind[i]]).z);
+		}
+		glGenVertexArrays(1, vao);
+		glBindVertexArray(vao[0]);
+		glGenBuffers(1, vbo); // put the vertices into buffer #0
+
+		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+		glBufferData(GL_ARRAY_BUFFER, pvalues.size() * sizeof(GLfloat), &pvalues[0], GL_STATIC_DRAW); // put the texture coordinates into buffer #1
+
+		//glBindBuffer(GL_ARRAY_BUFFER, vbo[1]);
+		//glBufferData(GL_ARRAY_BUFFER, nvalues.size() * sizeof(GLfloat), &nvalues[0], GL_STATIC_DRAW);
+
+		numVertices = mySphere.getNumIndices();
+
+
+		/*Sphere mySphere(5, 5);
+
+		numVertices = mySphere.getNumVertices();
+		glGenVertexArrays(1, vao);
+		glBindVertexArray(vao[0]);
+
+		glGenBuffers(1, vbo);
+		// put the vertices into buffer #0
+		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+		glBufferData(GL_ARRAY_BUFFER,mySphere.getVertices().size(), &mySphere.getVertices(), GL_STATIC_DRAW);
+
+		*/
+
+
+	}
+	else if (figura == 4) {
+
+		Sphere2 mySphere2(5);//Sphere mySphere(48);
+
+		std::vector<int> ind = mySphere2.getIndices();
+		std::vector<glm::vec3> vert = mySphere2.getVertices();
+		//std::vector<glm::vec2> tex = mySphere2.getTexCoords();
+		//std::vector<glm::vec3> norm = mySphere2.getNormals();
+		std::vector<float> pvalues; // vertex positions
+		//std::vector<float> tvalues; // texture coordinates
+		//std::vector<float> nvalues; // normal vectors
+
+		
+		for (int i = 0; i < mySphere2.getNumIndices(); i++) {
+			pvalues.push_back((vert[ind[i]]).x);
+			pvalues.push_back((vert[ind[i]]).y);
+			pvalues.push_back((vert[ind[i]]).z);
+			//tvalues.push_back((tex[ind[i]]).s);
+			//tvalues.push_back((tex[ind[i]]).t);
+			//nvalues.push_back((norm[ind[i]]).x);
+			//nvalues.push_back((norm[ind[i]]).y);
+			//nvalues.push_back((norm[ind[i]]).z);
+		}
+
+
+		glGenVertexArrays(1, vao);
+		glBindVertexArray(vao[0]);
+		glGenBuffers(1, vbo);//glGenBuffers(3, vbo);
+		// put the vertices into buffer #0
+		glBindBuffer(GL_ARRAY_BUFFER, vbo[0]);
+		glBufferData(GL_ARRAY_BUFFER, pvalues.size() * 4, &pvalues[0], GL_STATIC_DRAW);
+
+/*
+		// put the texture coordinates into buffer #1
+		glBindBuffer(GL_ARRAY_BUFFER, vbo[1]);
+		glBufferData(GL_ARRAY_BUFFER, tvalues.size() * 4, &tvalues[0], GL_STATIC_DRAW);
+		// put the normals into buffer #2
+		glBindBuffer(GL_ARRAY_BUFFER, vbo[2]);
+		glBufferData(GL_ARRAY_BUFFER, nvalues.size() * 4, &nvalues[0], GL_STATIC_DRAW);
+*/
+		numVertices = mySphere2.getNumIndices();
 	}
 	
 }

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>807</width>
-    <height>549</height>
+    <width>845</width>
+    <height>572</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>20</x>
       <y>60</y>
-      <width>511</width>
-      <height>421</height>
+      <width>551</width>
+      <height>441</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout"/>
@@ -28,10 +28,10 @@
    <widget class="QGroupBox" name="groupBox">
     <property name="geometry">
      <rect>
-      <x>550</x>
+      <x>590</x>
       <y>60</y>
       <width>241</width>
-      <height>80</height>
+      <height>111</height>
      </rect>
     </property>
     <property name="title">
@@ -40,10 +40,10 @@
     <widget class="QPushButton" name="pushButton">
      <property name="geometry">
       <rect>
-       <x>20</x>
-       <y>30</y>
+       <x>10</x>
+       <y>20</y>
        <width>71</width>
-       <height>31</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
@@ -53,24 +53,50 @@
     <widget class="QPushButton" name="pushButton_2">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>30</y>
+       <x>80</x>
+       <y>20</y>
        <width>81</width>
-       <height>31</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
       <string>CUADRADO</string>
      </property>
     </widget>
+    <widget class="QPushButton" name="pushButton_6">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>40</y>
+       <width>71</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ESFERA 1</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="pushButton_7">
+     <property name="geometry">
+      <rect>
+       <x>80</x>
+       <y>40</y>
+       <width>81</width>
+       <height>21</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ESFERA 2</string>
+     </property>
+    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_2">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>150</y>
+      <x>590</x>
+      <y>170</y>
       <width>241</width>
-      <height>80</height>
+      <height>51</height>
      </rect>
     </property>
     <property name="title">
@@ -79,7 +105,7 @@
     <widget class="QPushButton" name="pushButton_3">
      <property name="geometry">
       <rect>
-       <x>30</x>
+       <x>10</x>
        <y>20</y>
        <width>75</width>
        <height>21</height>
@@ -92,10 +118,10 @@
     <widget class="QPushButton" name="pushButton_4">
      <property name="geometry">
       <rect>
-       <x>110</x>
+       <x>80</x>
        <y>20</y>
        <width>75</width>
-       <height>23</height>
+       <height>21</height>
       </rect>
      </property>
      <property name="text">
@@ -106,34 +132,21 @@
    <widget class="QGroupBox" name="groupBox_3">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>240</y>
+      <x>590</x>
+      <y>290</y>
       <width>241</width>
-      <height>80</height>
+      <height>71</height>
      </rect>
     </property>
     <property name="title">
      <string>SEGMENTS</string>
     </property>
-    <widget class="QPushButton" name="pushButton_5">
-     <property name="geometry">
-      <rect>
-       <x>30</x>
-       <y>30</y>
-       <width>75</width>
-       <height>23</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>SCALE</string>
-     </property>
-    </widget>
    </widget>
    <widget class="QGroupBox" name="groupBox_4">
     <property name="geometry">
      <rect>
-      <x>550</x>
-      <y>330</y>
+      <x>590</x>
+      <y>360</y>
       <width>241</width>
       <height>151</height>
      </rect>
@@ -279,6 +292,33 @@
      </property>
     </widget>
    </widget>
+   <widget class="QGroupBox" name="groupBox_6">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>230</y>
+      <width>241</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>ATAJO</string>
+    </property>
+    <widget class="QPushButton" name="pushButton_5">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>81</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>SCALE</string>
+     </property>
+    </widget>
+   </widget>
+   <zorder>groupBox_6</zorder>
    <zorder>groupBox_5</zorder>
    <zorder>groupBox</zorder>
    <zorder>groupBox_2</zorder>
@@ -291,7 +331,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>807</width>
+     <width>845</width>
      <height>21</height>
     </rect>
    </property>
