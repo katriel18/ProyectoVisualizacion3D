@@ -13,6 +13,7 @@ protected:
     void paintGL();
 
 public:
+    //FIGURAS
     GLuint programID;
 
     GLuint vao[1];
@@ -31,11 +32,25 @@ public:
     int numVertices;
 
     int figura;
+
     boolean fill;
     boolean wire;
 
     float SCALE;
-    
 
     void seleccionarFigura(int figura);
+
+    //PLANOXYZ
+    GLuint planoID;
+    GLuint VAO;
+    GLuint VBO;
+    GLuint matrixPlanoID;
+    mat4 myScalingMatrixPlano;
+
+    GLfloat colorPlanoID1;
+    GLfloat colorPlanoID2;
+    GLfloat colorPlanoID3;
+    void planoInit();
+    void planoDisplay();
+
 };

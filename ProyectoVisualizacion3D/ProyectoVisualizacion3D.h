@@ -19,7 +19,6 @@ public:
 private:
     Ui::ProyectoVisualizacion3DClass ui;
 
-    
 private slots:
    void on_pushButton_clicked();
    void on_pushButton_2_clicked();
@@ -27,7 +26,7 @@ private slots:
    void on_pushButton_4_clicked();
 
    void on_pushButton_5_clicked();
+
 private:
-   
     OpenGLWidget *OGLW;
 };

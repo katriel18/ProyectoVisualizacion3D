@@ -67,12 +67,12 @@ void ProyectoVisualizacion3D::on_pushButton_4_clicked()
 void ProyectoVisualizacion3D::on_pushButton_5_clicked()
 {
 
-    if (OGLW->SCALE == 1.0f || OGLW->SCALE == 0.2f) {
+    if (OGLW->SCALE == 1.0f || OGLW->SCALE == 0.5f) {
         OGLW->SCALE=2.0f;
 
 
     }else if(OGLW->SCALE == 2.0f) {
-        OGLW->SCALE = 0.2f;
+        OGLW->SCALE = 0.5f;
     }
     OGLW->update();
 

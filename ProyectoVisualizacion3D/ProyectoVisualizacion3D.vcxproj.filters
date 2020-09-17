@@ -90,5 +90,11 @@
     <None Include="vertex_core.glsl">
       <Filter>Resource Files\shaders</Filter>
     </None>
+    <None Include="fragment_plano.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
+    <None Include="vertex_plano.glsl">
+      <Filter>Resource Files\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
